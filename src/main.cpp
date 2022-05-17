@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "../include/Player.h"
 
 int main()
 {
@@ -6,6 +7,17 @@ int main()
     const int windowWidth{800};
     const int windowHeight{600};
     InitWindow(windowWidth, windowHeight, "Flappy Bird Clone");
+
+    // initialise player
+    Player player {
+        Rectangle{ 
+            windowWidth / 2 - 25,
+            windowHeight / 2 - 25,
+            50,
+            50
+        }, // player rectangle
+        1000.f // jump velocity
+    };
 
     // initialise target framerate
     const int targetFramerate{60}; // 60 fps target
@@ -17,7 +29,7 @@ int main()
         BeginDrawing();
         ClearBackground(WHITE);
         // game logic
-
+        player.Tick(GetFrameTime());
         EndDrawing();
     }
     CloseWindow();    
