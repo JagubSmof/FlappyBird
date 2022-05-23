@@ -1,4 +1,4 @@
-#include "../include/Player.h"
+#include "Player.h"
 
 Player::Player(Rectangle playerRec, float jumpVelocity)
 : _playerRectangle(playerRec), _playerJumpVelocity(jumpVelocity)
